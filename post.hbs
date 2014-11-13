@@ -55,21 +55,28 @@
 
         {{/author}}
 
-            <!--<section class="share">
-                <h4>Share This Post</h4>
-                <a class="icon-twitter" href="http://service.weibo.com/share/share.php?title={{encode title}}&amp;ralateUid=1948101653&amp;url={{url absolute="true"}}&amp;pic={{image}}"
-                    onclick="window.open(this.href, '微博分享', 'width=550,height=235');return false;">
-                    <span class="hidden">Weibo</span>
+<!-- https://github.com/diancloud/Casper/blob/master/post.hbs -->
+            <section class="share">
+                <h4>分享本文</h4>
+                <a title="微博" class="iconfont iconfont-weibo" href="http://service.weibo.com/share/share.php?title={{excerpt characters="120"}}&url={{url absolute="true"}}&pic= {{#if image}}{{image}}{{/if}}"
+                    target="_blank">
+                    <span class="hidden">微博</span>
                 </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
-                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-                    <span class="hidden">Facebook</span>
+
+                <a title="QQ空间" class="iconfont iconfont-qzone" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{url absolute="true"}}&title={{title}}&summary={{excerpt characters="120"}}&desc=这篇文章不错，推荐大家看看。&site=marry-me.today&pics={{#if image}}{{image}}{{/if}}" 
+                     target="_blank">
+                     <span class="hidden">QQ空间</span>
                 </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
-                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-                    <span class="hidden">Google+</span>
+
+                <a title="豆瓣" class="iconfont iconfont-douban" href="javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:'',r='http://www.douban.com/recommend/?url='+e(d.location.href)+'&title='+e(d.title)+'&sel='+e(s)+'&v=1',w=450,h=330,x=function(){if(!window.open(r,'douban','toolbar=0,resizable=1,scrollbars=yes,status=1,width='+w+',height='+h+',left='+(screen.width-w)/2+',top='+(screen.height-h)/2))location.href=r+'&r=1'};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()">
+                    <span class="hidden">豆瓣</span>
                 </a>
-            </section>-->
+
+                <a title="人人" class="iconfont iconfont-renren" href="http://widget.renren.com/dialog/share?resourceUrl={{url absolute="true"}}&srcUrl={{url absolute="true"}}&pic={{#if image}}{{image}}{{/if}}&title={{title}}&description={{excerpt characters="120"}}&charset=UTF-8"
+                    target="_blank">
+                    <span class="hidden">人人</span>
+                </a>
+            </section>
 
         </footer>
 
