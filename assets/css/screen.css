@@ -545,7 +545,8 @@ margin on the iframe, cause it breaks stuff. */
 }
 
 /* Stop it bouncing and increase contrast when hovered */
-.scroll-down:hover {
+.scroll-down:hover, .scroll-down:focus {
+    text-decoration: none;
     color: #fff;
     -webkit-animation: none;
     animation: none;
@@ -1239,6 +1240,9 @@ body:not(.post-template) .post-title {
     font-size: 1.3rem;
     color: #9EABB3;
     text-align: center;
+    display: block;
+    padding-left: 0;
+    border-radius: 0;
 }
 
 .pagination a {
