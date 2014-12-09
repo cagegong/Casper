@@ -2,10 +2,13 @@
 {{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
 
 {{! The big featured header }}
-<header class="main-header {{#if @blog.cover}}" style="background-image: url({{@blog.cover}}){{else}}no-cover{{/if}}">
+<header ng-controller="index" class="main-header {{#if @blog.cover}}" style="background-image: url({{@blog.cover}}){{else}}no-cover{{/if}}">
     <nav class="main-nav overlay clearfix">
         {{#if @user}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Blog Logo" /></a>{{/if}}
-        <div class="user-widget"></div>
+        <a ng-if="!me" class="subscribe-button" href="/signin">Login</a>
+        <a ng-if="me" class="user-profile">
+          <div class="avatar" ng-style="{'background-image':'url('+me.image+')'}"></div>{[{me.name}]}
+        </a>
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
