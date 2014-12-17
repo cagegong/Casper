@@ -49,5 +49,5 @@ angular.module('ghost', []).constant('configs', {
     });
   }
 }).controller('index', function($scope, $rootScope) {
-  return console.log('hello');
+  return console.log('hello world');
 });
