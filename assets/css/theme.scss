@@ -31,7 +31,26 @@
     margin-right: 5px;
   }
 }
-
-
+.loading{
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #FFF;
+}
+.sider{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #333;
+  color: #FFF;
+  width: 200px;
+}
+.backdrop{
+  transform: translate3d(-200px, 0 ,0);
+}
 
 

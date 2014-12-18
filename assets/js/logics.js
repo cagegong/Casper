@@ -38,16 +38,23 @@ angular.module('ghost', []).constant('configs', {
       return config;
     }
   };
-}).run(function(configs, $http, $rootScope) {
+}).run(function(configs, $http, $rootScope, $timeout) {
   console.log(configs.session);
   if (configs.session && configs.session.expires_at > (new Date()).valueOf()) {
-    return $http.get('users/me/?include=roles&status=all').then(function(result) {
+    $http.get('users/me/?include=roles&status=all').then(function(result) {
       console.log(result.status, result);
       if (result.status === 200) {
         return $rootScope.me = result.data.users[0];
       }
     });
   }
+  $timeout(function() {
+    return $rootScope.loaded = true;
+  }, 200);
 }).controller('index', function($scope, $rootScope) {
-  return console.log('hello world');
+  return angular.extend($scope, {
+    toggleSider: function() {
+      return $rootScope.showSider = !$rootScope.showSider;
+    }
+  });
 });

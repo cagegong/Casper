@@ -33,4 +33,28 @@
   .user-profile .avatar {
     margin-right: 5px; }
 
+/* line 34, /Users/kaiqigong/samples/ghost/content/themes/myCasper/assets/css/theme.scss */
+.loading {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #FFF; }
+
+/* line 43, /Users/kaiqigong/samples/ghost/content/themes/myCasper/assets/css/theme.scss */
+.sider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #333;
+  color: #FFF;
+  width: 200px; }
+
+/* line 52, /Users/kaiqigong/samples/ghost/content/themes/myCasper/assets/css/theme.scss */
+.backdrop {
+  transform: translate3d(-200px, 0, 0); }
+
 /*# sourceMappingURL=theme.min.css.map */

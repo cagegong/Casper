@@ -37,7 +37,7 @@ angular.module 'ghost',[]
     config.url = configs.baseUrl + config.url if not /^(\/\/|\/|http:|https:)/.test config.url
     config
 
-.run (configs, $http, $rootScope)->
+.run (configs, $http, $rootScope, $timeout)->
   console.log configs.session
   if configs.session and configs.session.expires_at > (new Date()).valueOf()
     $http.get 'users/me/?include=roles&status=all'
@@ -45,7 +45,13 @@ angular.module 'ghost',[]
       console.log result.status, result
       if result.status is 200
         $rootScope.me = result.data.users[0]
+  $timeout ->
+    $rootScope.loaded = true
+  , 200
+  return
 
 .controller 'index', ($scope, $rootScope)->
-  console.log 'hello world'
+  angular.extend $scope,
+    toggleSider: ()->
+      $rootScope.showSider = !$rootScope.showSider
 

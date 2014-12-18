@@ -2,11 +2,11 @@
 {{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
 
 {{! The big featured header }}
-<header ng-controller="index" class="main-header {{#if @blog.cover}}" style="background-image: url({{@blog.cover}}){{else}}no-cover{{/if}}">
+<header ng-controller="index" class="main-header {{#if @blog.cover}}" style="background-image: url({{@blog.cover}}){{else}}no-cover{{/if}}" ng-class="{'backdrop':showSider}">
     <nav class="main-nav overlay clearfix">
         {{#if @user}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Blog Logo" /></a>{{/if}}
         <a ng-if="!me" class="subscribe-button" href="/signin">Login</a>
-        <a ng-if="me" class="user-profile">
+        <a ng-if="me" class="user-profile" ng-click="toggleSider()">
           <div class="avatar" ng-style="{'background-image':'url('+me.image+')'}"></div>{[{me.name}]}
         </a>
     </nav>
@@ -20,7 +20,7 @@
 </header>
 
 {{! The main content area on the homepage }}
-<main id="content" class="content" role="main">
+<main id="content" class="content" role="main" ng-class="{'backdrop':showSider}">
 
     {{! The tag below includes the post loop - partials/loop.hbs }}
     {{> "loop"}}
@@ -28,5 +28,5 @@
 </main>
 
 <div ng-if="me">
-  <div ng-include="assets/template/sider.html"></div>
+  <div ng-include="'{{asset "template/sider.html"}}'"></div>
 </div>
