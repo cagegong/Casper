@@ -20,6 +20,17 @@
 
     {{! Ghost outputs important style and meta data with this tag }}
     {{ghost_head}}
+
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?ed6ad071c3f508624fbb07fc3f034e3d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
 </head>
 <body class="{{body_class}}" ng-app="ghost">
   <div class="loading" ng-hide="loaded">
