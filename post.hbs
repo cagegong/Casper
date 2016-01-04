@@ -8,13 +8,14 @@
 
 <header class="main-header post-head {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}">
     <nav class="main-nav {{#if image}}overlay{{/if}} clearfix">
-        <a class="back-button icon-arrow-left" href="{{@blog.url}}">Home</a>
-        <a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
+        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
+        {{#if @blog.navigation}}
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        {{/if}}
     </nav>
 </header>
 
 <main class="content" role="main">
-
     <article class="{{post_class}}">
 
         <header class="post-header">
@@ -63,7 +64,7 @@
                     <span class="hidden">微博</span>
                 </a>
 
-                <a title="QQ空间" class="iconfont iconfont-qzone" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{url absolute="true"}}&title={{title}}&summary={{excerpt characters="120"}}&desc=这篇文章不错，推荐大家看看。&site=marry-me.today&pics={{#if image}}{{image}}{{/if}}" 
+                <a title="QQ空间" class="iconfont iconfont-qzone" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{url absolute="true"}}&title={{title}}&summary={{excerpt characters="120"}}&desc=这篇文章不错，推荐大家看看。&site=marry-me.today&pics={{#if image}}{{image}}{{/if}}"
                      target="_blank">
                      <span class="hidden">QQ空间</span>
                 </a>
@@ -91,14 +92,32 @@
                 ds.type = 'text/javascript';ds.async = true;
                 ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
                 ds.charset = 'UTF-8';
-                (document.getElementsByTagName('head')[0] 
+                (document.getElementsByTagName('head')[0]
                  || document.getElementsByTagName('body')[0]).appendChild(ds);
             })();
             </script>
         <!-- 多说公共JS代码 end -->
 
     </article>
-
 </main>
+
+<aside class="read-next">
+    {{#next_post}}
+    <a class="read-next-story {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
+        <section class="post">
+            <h2>{{title}}</h2>
+            <p>{{excerpt words="19"}}&hellip;</p>
+        </section>
+    </a>
+    {{/next_post}}
+    {{#prev_post}}
+    <a class="read-next-story prev {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
+        <section class="post">
+            <h2>{{title}}</h2>
+            <p>{{excerpt words="19"}}&hellip;</p>
+        </section>
+    </a>
+    {{/prev_post}}
+</aside>
 
 {{/post}}
